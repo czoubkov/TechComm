@@ -10,7 +10,7 @@ class PostsListPage extends React.Component {
   }
 
   componentDidMount() {
-    fetch("/api/posts")
+    fetch("/api/posts/jobs")
       .then(res => res.json())
       .then(posts => {
         console.log(posts);

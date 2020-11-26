@@ -7,7 +7,7 @@ class JobPostFormPage extends React.Component {
     success: false,
     title: '',
     content: '',
-    postType: 'job'
+    postType: 'rent'
   }
 
   /*
@@ -79,7 +79,7 @@ class JobPostFormPage extends React.Component {
         { errorMessage }
         <div className="input-group">
           <label>
-            Title:
+            Address:
           </label>
           <input
             type="text"

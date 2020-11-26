@@ -9,6 +9,9 @@ import {
 import PostsListPage from './pages/PostsListPage';
 import PostFormPage from './pages/PostFormPage';
 import JobPostFormPage from './pages/JobPostFormPage';
+import JobPostsListPage from './pages/JobPostsListPage';
+import RentPostFormPage from './pages/RentPostFormPage';
+import RentPostsListPage from './pages/RentPostsListPage';
 import ShowPostPage from './pages/ShowPostPage';
 import AboutUsPage from './pages/AboutUsPage';
 import LoginPage from './pages/LoginPage';
@@ -34,6 +37,21 @@ function Navigation(props) {
           </NavLink>
         </li>
         <li className="nav-item">
+          <NavLink className="nav-link" exact to="/posts/jobs">
+            View Job Listings
+          </NavLink>
+        </li>
+        <li className="nav-item">
+          <NavLink className="nav-link" exact to="/posts/rent">
+            Create a Rental Listing
+          </NavLink>
+        </li>
+        <li className="nav-item">
+          <NavLink className="nav-link" exact to="/posts/rents">
+            View Rental Listings
+          </NavLink>
+        </li>
+        <li className="nav-item">
           <NavLink className="nav-link" exact to="/about-us">
             About Us
           </NavLink>
@@ -56,6 +74,9 @@ class App extends React.Component {
                 <Route path="/login" component={LoginPage} />
                 <PrivateRoute path="/posts/new" component={PostFormPage} />
                 <Route path="/posts/job" component={JobPostFormPage} />
+                <Route path="/posts/jobs" component={JobPostsListPage} />
+                <Route path="/posts/rent" component={RentPostFormPage} />
+                <Route path="/posts/rents" component={RentPostsListPage} />A
                 <Route path="/posts/:id" component={ShowPostPage} />
                 <Route path="/about-us" component={AboutUsPage} />
                 <Route path="/" component={PostsListPage} />

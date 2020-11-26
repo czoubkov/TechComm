@@ -22,17 +22,32 @@ router.get('/', (req,res) => {
     .then(posts => res.json(posts));
 });
 
+router.get('/jobs', (req,res) => {
+  Post.findAll({ where: { postType: 'job' } })
+    .then(posts => res.json(posts));
+});
+
+router.get('/rents', (req,res) => {
+  Post.findAll({ where: { postType: 'rent' } })
+    .then(posts => res.json(posts));
+});
 
 router.post('/',
   passport.isAuthenticated(),
   (req, res) => {
-    let { content } = req.body;
+    let { title, content, postType } = req.body;
+    console.log("req.body: " + JSON.stringify(req.body));
+    console.log("title:" + title);
+    console.log("content: " + content);
+    console.log("postType: " + postType);
     
-    Post.create({ content })
+    Post.create({ title, content, postType })
       .then(post => {
+        console.log(post.content + " " + post.title);
         res.status(201).json(post);
       })
       .catch(err => {
+        console.log(err);
         res.status(400).json(err);
       });
   }
