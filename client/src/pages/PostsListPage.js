@@ -10,14 +10,15 @@ class PostsListPage extends React.Component {
   }
 
   componentDidMount() {
-    fetch("/api/posts")
+    fetch("/api/addnewposts")
       .then(res => res.json())
-      .then(posts => {
-        console.log(posts);
+      .then(alldata => {
         this.setState({
           loading: false,
-          posts: posts.map((p,ii) => <Post {...p} key={ii} />),
+          posts: alldata,
+        
         });
+        console.log("this is how its works");
       })
       .catch(err => console.log("API ERROR: ", err));
   }
@@ -28,10 +29,20 @@ class PostsListPage extends React.Component {
     }
 
     return (
-      <div className="container-fluid text-center">
-        <div className="row justify-content-center">
-          { this.state.posts }
-        </div>
+       <div className="container-fluid text-center">
+        {
+   
+       this.state.posts.map((alldata,keyone)=>(
+              <div className="row justify-content-center" key ={keyone} >
+                <Post 
+                  posttitle ={alldata.title}
+                  posttype={alldata.posttype}
+                  postdesc ={alldata.postdesc}
+
+                />
+                 </div>
+            ))}
+      
       </div>
     );
   }

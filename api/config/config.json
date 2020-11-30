@@ -1,8 +1,8 @@
 {
   "development": {
-    "username": "ctp_user",
-    "password": "ctp_pass",
-    "database": "app2019_development",
+    "username": "jeewan",
+    "password": "Jeewan1",
+    "database": "Techcomm",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },

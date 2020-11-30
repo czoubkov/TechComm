@@ -1,64 +1,71 @@
 import React from 'react';
 import { 
-  BrowserRouter as Router, 
-  Switch, 
-  Route, 
-  Link,
-  NavLink
+  BrowserRouter as Router, Switch, Route, Link,NavLink
 } from 'react-router-dom';
+import { browserHistory, IndexRoute } from 'react-router'
 import PostsListPage from './pages/PostsListPage';
 import PostFormPage from './pages/PostFormPage';
-import JobPostFormPage from './pages/JobPostFormPage';
-import JobPostsListPage from './pages/JobPostsListPage';
-import RentPostFormPage from './pages/RentPostFormPage';
-import RentPostsListPage from './pages/RentPostsListPage';
 import ShowPostPage from './pages/ShowPostPage';
 import AboutUsPage from './pages/AboutUsPage';
-import LoginPage from './pages/LoginPage';
-import PrivateRoute from './components/PrivateRoute';
-import AuthButton from './components/AuthButton';
-
+import addnewpost  from './pages/addnewpost';
+//import send from './pages/setting.js';
 import './App.css';
-
 
 function Navigation(props) {
   return (
-    <nav className="navbar navbar-expand-sm navbar-dark bg-dark shadow mb-3">
-      <Link className="navbar-brand" to="/">TechComm</Link>
-      <ul className="navbar-nav mr-auto">
-        <li className="nav-item">
-          <NavLink className="nav-link" exact to="/posts/new">
-            Create a Micro Post
-          </NavLink>
-        </li>
-        <li className="nav-item">
-          <NavLink className="nav-link" exact to="/posts/job">
-            Create a Job Listing
-          </NavLink>
-        </li>
-        <li className="nav-item">
-          <NavLink className="nav-link" exact to="/posts/jobs">
-            View Job Listings
-          </NavLink>
-        </li>
-        <li className="nav-item">
-          <NavLink className="nav-link" exact to="/posts/rent">
-            Create a Rental Listing
-          </NavLink>
-        </li>
-        <li className="nav-item">
-          <NavLink className="nav-link" exact to="/posts/rents">
-            View Rental Listings
-          </NavLink>
-        </li>
-        <li className="nav-item">
-          <NavLink className="nav-link" exact to="/about-us">
-            About Us
-          </NavLink>
-        </li>
-      </ul>
-      <AuthButton />
-    </nav>
+      
+            <div  >
+                <div className="topnav" id="myTopnav">
+                
+             <ul>
+             <li className="active" className="homebtn">
+                            <NavLink className="nav-link" exact to="/posts/new">
+                                Techcomm
+                            </NavLink>
+                        </li>
+                        <li className="logout">
+                            <NavLink className="nav-link" exact to="/about-us">
+                               logout
+                            </NavLink>
+                        </li>
+             </ul>
+                
+                </div>
+                <div className="line"></div>
+                    <nav className="sidebar">
+                        <div className="sidebar-header">
+                        <Link to="/" className="nav-link">
+                        <img href="./img/why.you.jpeg" height="50" width="50" alt="image"/>
+                        <h3>Profile</h3>
+                       
+                        </Link>
+                        
+                        </div>
+                    
+                    <ul className="components">
+                        <li className="active">
+                            <NavLink className="nav-link" exact to="/posts/new">
+                                Create a Micro Post
+                            </NavLink>
+                        </li>
+                        <li >
+                            <NavLink className="nav-link" exact to="/about-us">
+                                About Us
+                            </NavLink>
+                        </li>
+                       <li>
+                           <NavLink className="nav-link" exact to="/add/addnewpost" > Add New Post </NavLink>
+                       </li>
+                        <li >
+                            <NavLink className="nav-link" exact to="/add/setting">
+                                Account Setting
+                            </NavLink>
+                        </li>
+                    </ul>
+                      
+                   </nav>
+</div>    
+    
   );
 }
 
@@ -66,20 +73,20 @@ function Navigation(props) {
 class App extends React.Component {
   render() {
     return (
-        <Router>
+        <Router >
           <Navigation />
-          <div className="container-fluid text-center">
-            <div className="row justify-content-center">
-              <Switch>
-                <Route path="/login" component={LoginPage} />
-                <PrivateRoute path="/posts/new" component={PostFormPage} />
-                <Route path="/posts/job" component={JobPostFormPage} />
-                <Route path="/posts/jobs" component={JobPostsListPage} />
-                <Route path="/posts/rent" component={RentPostFormPage} />
-                <Route path="/posts/rents" component={RentPostsListPage} />A
+          <div>
+            <div className="content">
+              <Switch className="content">
+                
+                {/* <Route path ="/add/setting" component={send} /> */}
+                <Route path="/posts/new" component={PostFormPage} />
                 <Route path="/posts/:id" component={ShowPostPage} />
                 <Route path="/about-us" component={AboutUsPage} />
+                <Route path="/add/addnewpost" component={addnewpost} />
                 <Route path="/" component={PostsListPage} />
+               
+                
               </Switch>
             </div>
           </div>
