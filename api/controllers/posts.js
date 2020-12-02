@@ -36,12 +36,15 @@ router.post('/',
   passport.isAuthenticated(),
   (req, res) => {
     let { title, content, postType } = req.body;
+    let userId = req.session.passport.user;
+    console.log("req.session: " + JSON.stringify(req.session));
     console.log("req.body: " + JSON.stringify(req.body));
     console.log("title:" + title);
     console.log("content: " + content);
     console.log("postType: " + postType);
+    console.log("userId: " + userId);
     
-    Post.create({ title, content, postType })
+    Post.create({ title, content, postType, userId })
       .then(post => {
         console.log(post.content + " " + post.title);
         res.status(201).json(post);
@@ -53,6 +56,12 @@ router.post('/',
   }
 );
 
+router.get('/users/:id', (req, res) => {
+  const { id } = req.params;
+  Post.findAll({ where: { userdId: id } })
+    .then(posts => res.json(posts));
+})
+
 
 router.get('/:id', (req, res) => {
   const { id } = req.params;
@@ -61,7 +70,6 @@ router.get('/:id', (req, res) => {
       if(!post) {
         return res.sendStatus(404);
       }
-
       res.json(post);
     });
 });

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 
-class JobPostFormPage extends React.Component {
+class RentPostFormPage extends React.Component {
   state = {
     error: false,
     success: false,
@@ -109,4 +109,4 @@ class JobPostFormPage extends React.Component {
   }
 }
 
-export default JobPostFormPage;
+export default RentPostFormPage;

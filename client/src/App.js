@@ -12,6 +12,7 @@ import JobPostFormPage from './pages/JobPostFormPage';
 import JobPostsListPage from './pages/JobPostsListPage';
 import RentPostFormPage from './pages/RentPostFormPage';
 import RentPostsListPage from './pages/RentPostsListPage';
+import UserPostsListPage from './pages/UserPostsListPage';
 import ShowPostPage from './pages/ShowPostPage';
 import AboutUsPage from './pages/AboutUsPage';
 import LoginPage from './pages/LoginPage';
@@ -73,13 +74,14 @@ class App extends React.Component {
               <Switch>
                 <Route path="/login" component={LoginPage} />
                 <PrivateRoute path="/posts/new" component={PostFormPage} />
-                <Route path="/posts/job" component={JobPostFormPage} />
+                <PrivateRoute path="/posts/job" component={JobPostFormPage} />
                 <Route path="/posts/jobs" component={JobPostsListPage} />
-                <Route path="/posts/rent" component={RentPostFormPage} />
-                <Route path="/posts/rents" component={RentPostsListPage} />A
+                <PrivateRoute path="/posts/rent" component={RentPostFormPage} />
+                <Route path="/posts/rents" component={RentPostsListPage} />
                 <Route path="/posts/:id" component={ShowPostPage} />
                 <Route path="/about-us" component={AboutUsPage} />
                 <Route path="/" component={PostsListPage} />
+                <Route path="/user/:user_id" component={UserPostsListPage} />
               </Switch>
             </div>
           </div>

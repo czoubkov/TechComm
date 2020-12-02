@@ -3,14 +3,16 @@ import Post from '../components/Post';
 import Loading from '../components/Loading';
 
 
-class RentPostsListPage extends React.Component {
+class UserPostsListPage extends React.Component {
   state = {
     posts: [],
     loading: true,
+    fullName: "",
   }
 
   componentDidMount() {
-    fetch("/api/posts/rents")
+    const { id } = this.props.match.params;
+    fetch("/api/posts/user"+id)
       .then(res => res.json())
       .then(posts => {
         console.log(posts);
@@ -20,6 +22,16 @@ class RentPostsListPage extends React.Component {
         });
       })
       .catch(err => console.log("API ERROR: ", err));
+/*
+    fetch("api/users/"+id+"/fullName")
+      .then(res => res.json())
+      .then(name => {
+        console.log(name);
+        this.setState({
+          //fullName: name,
+        })
+      });
+      */
   }
 
   render() {
@@ -29,6 +41,7 @@ class RentPostsListPage extends React.Component {
 
     return (
       <div className="container-fluid text-center">
+        <div className="text-center">{ this.state.fullName }</div>
         <div className="row justify-content-center">
           { this.state.posts }
         </div>
@@ -37,4 +50,4 @@ class RentPostsListPage extends React.Component {
   }
 }
 
-export default RentPostsListPage;
+export default UserPostsListPage;

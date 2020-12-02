@@ -25,6 +25,8 @@ router.post('/login',
     // If this function gets called, authentication was successful.
     // `req.user` contains the authenticated user.
     res.json(req.user);
+
+    console.log("user id: " + JSON.stringify(req.session.passport.user));
   });
 
 router.post('/logout', (req, res) => {
