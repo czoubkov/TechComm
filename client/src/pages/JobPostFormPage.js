@@ -77,32 +77,36 @@ class JobPostFormPage extends React.Component {
     return (
       <div className="col-10 col-md-8 col-lg-7">
         { errorMessage }
-        <div className="input-group">
-          <label>
-            Title:
+        <div className="form-group">
+          <label classname="text-left">
+            Role
           </label>
-          <input
+          <textarea
             type="text"
             name="title"
+            rows="1"
             placeholder="Insert the title of your post"
             value={this.state.title}
             className="form-control mr-3 rounded"
             onChange={this.handleChange}
           />
         </div>
-        <div className="input-group">
-          <label>
+        <div className="form-group">
+          <label classname>
             Description:
           </label>
-          <input 
+          <textarea 
             type="text"
+            rows="5"
             name="content"
             placeholder="Add your words of wisdom here..." 
             value={this.state.content}
             className="form-control mr-3 rounded"
             onChange={this.handleChange}
           />
-          <button className="btn btn-primary" onClick={this.savePost}>Save Post</button>
+          <div className="text-right">
+            <button className="btn btn-primary" onClick={this.savePost}>Publish</button>
+          </div>
         </div>
       </div>
     );

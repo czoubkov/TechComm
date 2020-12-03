@@ -1,6 +1,13 @@
 import React from 'react';
 import Post from '../components/Post';
 import Loading from '../components/Loading';
+import { 
+  BrowserRouter as Router, 
+  Switch, 
+  Route, 
+  Link,
+  NavLink
+} from 'react-router-dom';
 
 
 class JobPostsListPage extends React.Component {
@@ -28,10 +35,17 @@ class JobPostsListPage extends React.Component {
     }
 
     return (
-      <div className="container-fluid text-center">
-        <div className="row justify-content-center">
-          { this.state.posts }
+      <div>
+        <div className="container-fluid" style={{marginLeft: "200px", width: "calc(100% - 200px)", paddingRight: "50px"}}>
+          <div className="row justify-content-start">
+            { this.state.posts }
+          </div>
+          <div className="text-left">
+            <Link exact to="/posts/job" className="btn btn-primary">+ New Post</Link>
+          </div>
         </div>
+
+        
       </div>
     );
   }
