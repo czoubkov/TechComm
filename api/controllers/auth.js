@@ -28,7 +28,7 @@ router.post('/login',
     res.json(req.user);
 
     console.log("user id: " + JSON.stringify(req.session.passport.user));
-    sessionStorage.setItem('userID', req.session.passport.user);
+    window.sessionStorage.setItem('userId', JSON.stringify(req.session.passport.user));
   });
 
 router.post('/logout', (req, res) => {

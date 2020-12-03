@@ -118,7 +118,7 @@ class SignUpPage extends React.Component {
                             required></input>
 
                         <label className="mt-2">Password</label>
-                        <input type="text" 
+                        <input type="password" 
                             className="form-control mb-2"
                             value={this.state.password} 
                             onChange = {this.fieldChanged('password')}

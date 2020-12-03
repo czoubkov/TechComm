@@ -12,7 +12,8 @@ class UserPostsListPage extends React.Component {
 
   componentDidMount() {
     const { id } = this.props.match.params;
-    fetch("/api/posts/user"+id)
+    console.log("userid:" + id);
+    fetch("/api/posts/user/"+id)
       .then(res => res.json())
       .then(posts => {
         console.log(posts);
@@ -40,10 +41,11 @@ class UserPostsListPage extends React.Component {
     }
 
     return (
-      <div className="container-fluid text-center">
-        <div className="text-center">{ this.state.fullName }</div>
-        <div className="row justify-content-center">
-          { this.state.posts }
+      <div>
+        <div className="container-fluid" style={{marginLeft: "200px", width: "calc(100% - 50px)", paddingRight: "0px"}}>
+          <div className="row justify-content-start">
+            { this.state.posts }
+          </div>
         </div>
       </div>
     );

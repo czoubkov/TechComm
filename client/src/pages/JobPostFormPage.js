@@ -78,7 +78,7 @@ class JobPostFormPage extends React.Component {
       <div className="col-10 col-md-8 col-lg-7">
         { errorMessage }
         <div className="form-group">
-          <label classname="text-left">
+          <label for="title">
             Role
           </label>
           <textarea
@@ -92,7 +92,7 @@ class JobPostFormPage extends React.Component {
           />
         </div>
         <div className="form-group">
-          <label classname>
+          <label for="content">
             Description:
           </label>
           <textarea 
@@ -105,7 +105,7 @@ class JobPostFormPage extends React.Component {
             onChange={this.handleChange}
           />
           <div className="text-right">
-            <button className="btn btn-primary" onClick={this.savePost}>Publish</button>
+            <button className="btn btn-primary mt-2" onClick={this.savePost}>Publish</button>
           </div>
         </div>
       </div>

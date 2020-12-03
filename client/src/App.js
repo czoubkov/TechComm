@@ -24,17 +24,16 @@ import logo from './images/TClogo.png';
 
 import './App.css';
 
-var userId = JSON.parse(localStorage.getItem('userId'));
-let myPostsLink = "/user/" + userId;
-
 function Navigation(props) {
+  var userId = JSON.parse(window.sessionStorage.getItem('userId'));
+  let myPostsLink = "/user/" + userId;
   return (
     <div>
       <div className="navbar navbar-expand-sm navbar-dark bg-dark shadow mb-3" id="myTopnav">
       <ul className="navbar-nav mr-auto">
           <li className="active" className="homebtn">
             <Link className="navbar-brand" to="/">
-              <img src={logo} width="30" height="30" class="d-inline-block align-bottom mr-2" alt="TechComm logo" />
+              <img src={logo} width="30" height="30" className="d-inline-block align-bottom mr-2" alt="TechComm logo" />
               TechComm
             </Link>
           </li>
@@ -50,11 +49,6 @@ function Navigation(props) {
           </Link>
         </div>          
         <ul className="components">
-          <li className="active">
-            <NavLink className="nav-link" exact to="/posts/new">
-              Create a Micro Post
-            </NavLink>
-          </li>
           <li>
             <NavLink className="nav-link" exact to="/posts/jobs">Job Listings</NavLink>
           </li>

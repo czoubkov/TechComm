@@ -56,10 +56,16 @@ router.post('/',
   }
 );
 
-router.get('/users/:id', (req, res) => {
+router.get('/user/:id', (req, res) => {
   const { id } = req.params;
   Post.findAll({ where: { userdId: id } })
-    .then(posts => res.json(posts));
+    .then(posts =>{
+      console.log(res)
+      res.json(posts)})
+    .catch(err => {
+      console.log(err);
+      res.status(400).json(err);
+    })
 })
 
 
