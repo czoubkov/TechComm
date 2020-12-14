@@ -1,4 +1,9 @@
-# Built on top of CUNY Tech Prep Project Starter
+# TechComm
+Technology for Community
+
+Corey Zoubkov, Jeewan Thapa Magar, Karma Gyatso
+
+## Built on top of CUNY Tech Prep Project Starter
 https://github.com/CUNYTechPrep/project-starter
 
 ## Stack
