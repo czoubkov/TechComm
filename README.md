@@ -3,6 +3,10 @@ Technology for Community
 
 Corey Zoubkov, Jeewan Thapa Magar, Karma Gyatso
 
+Karma's repo: https://github.com/karmaggyatso/TechComm
+
+Jeewan's repo: https://github.com/jeewanMgr/TechComm-1
+
 ## Built on top of CUNY Tech Prep Project Starter
 https://github.com/CUNYTechPrep/project-starter
 
